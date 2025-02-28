@@ -16,8 +16,18 @@ func (m *MenuService) SelectMenuList(menu sys_model.SysMenu, userId string) (men
 	// 管理员显示所有菜单信息
 	if sys_model.IsAdmin(userId) {
 		menuList, err = sys_repositories.MenuCrud.SelectMenuList(menu)
+	} else {
+		menu.Params = make(map[string]interface{})
+		menu.Params["userId"] = userId
+		menuList, err = sys_repositories.MenuCrud.SelectMenuListByUserId(menu)
 	}
 	return menuList, err
+}
+
+// SelectMenuListByRole 根据角色ID查询菜单树信息
+func (m *MenuService) SelectMenuListByRole(role sys_model.SysRole) (menuIds []string, err error) {
+	menuIds, err = sys_repositories.MenuCrud.SelectMenuListByRole(role)
+	return menuIds, err
 }
 
 // SelectMenuById 获取菜单下拉树列表

@@ -17,6 +17,9 @@ func RegisterMenuRoutes(r *gin.RouterGroup) {
 			authRouter.Use(middleware.PermissionMiddleware("system:menu:query")).GET("/:menuId", MenuController.SelectMenuById)
 			authRouter.Use(middleware.PermissionMiddleware("system:menu:add")).POST("", MenuController.InsertMenu)
 			authRouter.Use(middleware.PermissionMiddleware("system:menu:edit")).PUT("", MenuController.UpdateMenu)
+
+			authRouter.GET("/roleMenuTreeselect/:roleId", MenuController.RoleMenuTreeSelect)
+
 			authRouter.Use(middleware.PermissionMiddleware("system:menu:remove")).DELETE("/:menuId", MenuController.DeleteMenuById)
 
 		}

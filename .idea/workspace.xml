@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33f91536-20fd-492f-92ff-ebdfbe48d979" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/middleware/data_scope.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/c_system/sys_dept.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/c_system/sys_dept.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/c_system/sys_login.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/c_system/sys_login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/c_system/sys_menu.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/c_system/sys_menu.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/c_system/sys_role.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/c_system/sys_role.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/c_system/sys_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/c_system/sys_user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/middleware/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/middleware/jwt.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/model/sys_model/sys_dept.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/sys_model/sys_dept.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/sys_repositories/sys_dept.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/sys_repositories/sys_dept.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/service/sys_service/sys_dept.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/sys_service/sys_dept.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/routes/dept_routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/routes/dept_routes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/StringUtils/StringUtils.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/StringUtils/StringUtils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/middleware/cors.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/middleware/cors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/sys_model/sys_menu.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/sys_model/sys_menu.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/sys_repositories/sys_menu.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/sys_repositories/sys_menu.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/sys_repositories/sys_role.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/sys_repositories/sys_role.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/sys_repositories/sys_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/sys_repositories/sys_user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/sys_service/sys_menu.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/sys_service/sys_menu.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/sys_service/sys_role.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/sys_service/sys_role.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/routes/menu_routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/routes/menu_routes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/routes/role_routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/routes/role_routes.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +96,17 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

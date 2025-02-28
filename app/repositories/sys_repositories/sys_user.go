@@ -52,10 +52,12 @@ func (u *userCrud) SelectUserList(query sys_model.UserListRequest) ([]sys_model.
 		end = end.Add(24 * time.Hour).Add(-time.Second)
 		fmt.Println(start, end, "end")
 
-		db = db.Where("create_time BETWEEN ? AND ?",
+		db = db.Where("sys_user.create_time BETWEEN ? AND ?",
 			start,
 			end)
 	}
+
+	fmt.Println("111111111111")
 
 	// 部门ID查询
 	if query.DeptId != "" {

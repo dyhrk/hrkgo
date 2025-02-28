@@ -72,7 +72,15 @@ func (l *Controller) Login(c *gin.Context) {
 // Info 个人信息
 func (l *Controller) Info(c *gin.Context) {
 	permissions := sys_service.GetUserData(c.Keys["tokenId"].(string))
-	roles := []string{"admin"}
+
+	// 创建一个新的数组来存储 roleKey
+	var roles []string
+
+	// 遍历 user.roles 数组
+	for _, role := range permissions.User.Roles {
+		roles = append(roles, role.RoleKey)
+	}
+
 	response.SuccessInfo(c, "操作成功", permissions.Perms, roles, permissions.User)
 }
 

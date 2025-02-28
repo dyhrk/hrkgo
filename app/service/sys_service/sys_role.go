@@ -15,6 +15,7 @@ func (u *RoleService) GetRoleList(req sys_model.RoleListRequest) (list []sys_mod
 }
 
 // SelectRoleDataById 获取角色id查找角色数据
-//func (u *RoleService) SelectRoleDataById(req sys_model.RoleListRequest) (list []sys_model.SysRole, total int64, err error) {
-//
-//}
+func (u *RoleService) SelectRoleDataById(roleId string) (role sys_model.SysRole, err error) {
+	role, err = sys_repositories.RoleCrud.SelectRoleDataById(roleId)
+	return role, err
+}

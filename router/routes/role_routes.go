@@ -15,7 +15,9 @@ func RegisterRoleRoutes(r *gin.RouterGroup) {
 		authRouter := role.Use(middleware.JWTAuth())
 		{
 			authRouter.GET("/list", roleController.GetRoleList)
-			authRouter.GET("/type/:dictId", roleController.SelectRoleDataById)
+			authRouter.GET("/:roleId", roleController.SelectRoleDataById)
+			authRouter.GET("/deptTree/:roleId", roleController.SelectRoleDataById)
+
 		}
 	}
 

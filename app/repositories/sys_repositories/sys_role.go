@@ -56,3 +56,10 @@ func (m *roleCrud) GetRoleList(req sys_model.RoleListRequest) (list []sys_model.
 		Find(&list).Error
 	return list, total, err
 }
+
+// SelectRoleDataById 通过角色ID查询角色
+func (m *roleCrud) SelectRoleDataById(roleId string) (role sys_model.SysRole, err error) {
+	err = variable.GormDbMysql.Where("role_id = ?", roleId).First(&role).Error
+	fmt.Println(role)
+	return role, err
+}

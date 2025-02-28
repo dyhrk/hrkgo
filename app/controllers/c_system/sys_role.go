@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"hrkGo/app/model/sys_model"
 	"hrkGo/app/service/sys_service"
+	"hrkGo/utils/global/consts"
 	"hrkGo/utils/response"
 )
 
@@ -26,11 +27,11 @@ func (r *RoleController) GetRoleList(c *gin.Context) {
 }
 
 func (r *RoleController) SelectRoleDataById(c *gin.Context) {
-	//dictType := c.Param("dictId")
-	//dict, err := r.RoleService.SelectRoleDataById(dictType)
-	//if err != nil {
-	//	response.BusinessFail(c, consts.SQLERROR)
-	//	return
-	//}
-	//response.Success(c, consts.SUCCESS, dict)
+	roleId := c.Param("roleId")
+	dict, err := r.RoleService.SelectRoleDataById(roleId)
+	if err != nil {
+		response.BusinessFail(c, consts.SQLERROR)
+		return
+	}
+	response.Success(c, consts.SUCCESS, dict)
 }

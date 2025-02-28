@@ -1,6 +1,7 @@
 package c_system
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"hrkGo/app/middleware"
 	"hrkGo/app/model/sys_model"
@@ -32,6 +33,8 @@ func (d UserController) SelectUserList(c *gin.Context) {
 		response.ValidateFail(c, response.GetErrorMsg(req, err))
 		return
 	}
+
+	fmt.Println(req)
 
 	list, total, err := d.UserService.SelectUserList(req)
 	if err != nil {

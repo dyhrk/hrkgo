@@ -14,6 +14,7 @@ import (
 
 type MenuController struct {
 	MenuService sys_service.MenuService
+	RoleService sys_service.RoleService
 }
 
 // GetRouters 获取全部路由
@@ -51,6 +52,25 @@ func (m *MenuController) SelectMenuList(c *gin.Context) {
 		response.BusinessFail(c, "查询失败，请稍后再试")
 	}
 	response.Success(c, "查询成功", menus)
+}
+
+// RoleMenuTreeSelect 查询系统菜单列表
+func (m *MenuController) RoleMenuTreeSelect(c *gin.Context) {
+	roleId := c.Param("roleId")
+
+	role, _ := m.RoleService.SelectRoleDataById(roleId)
+
+	menuIds, _ := m.MenuService.SelectMenuListByRole(role)
+
+	var menu sys_model.SysMenu
+	menus, _ := m.MenuService.SelectMenuList(menu, c.Keys["userId"].(string))
+
+	TreeSelect := map[string]interface{}{
+		"checkedKeys": menuIds,
+		"menus":       m.MenuService.BuildMenuTree(menus),
+	}
+	response.Success(c, "查询成功", TreeSelect)
+
 }
 
 // SelectMenuById 查询系统菜单列表

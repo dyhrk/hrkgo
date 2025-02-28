@@ -28,7 +28,43 @@ func (m *menuCrud) SelectMenuList(menu sys_model.SysMenu) ([]*sys_model.SysMenu,
 	// 添加排序
 	err := query.Order("parent_id, order_num").Find(&menuList).Error
 	return menuList, err
+}
 
+// SelectMenuListByUserId 根据userId获取菜单列表
+func (m *menuCrud) SelectMenuListByUserId(menu sys_model.SysMenu) ([]*sys_model.SysMenu, error) {
+	var menuList []*sys_model.SysMenu
+
+	query := variable.GormDbMysql.Model(&sys_model.SysMenu{}).
+		Joins("left join sys_role_menu rm on sys_menu.menu_id = rm.menu_id").
+		Joins("left join sys_user_role ur on rm.role_id = ur.role_id").
+		Joins("left join sys_role ro on ur.role_id = ro.role_id").
+		Where("ur.user_id = ?", menu.Params["userId"])
+
+	if menu.MenuName != "" {
+		query = query.Where("menu_name LIKE ?", "%"+menu.MenuName+"%")
+	}
+	if menu.Status != "" {
+		query = query.Where("status = ?", menu.Status)
+	}
+
+	err := query.Order("parent_id, order_num").Find(&menuList).Error
+	return menuList, err
+}
+
+// SelectMenuListByRole 通过role查询菜单 错的
+func (m *menuCrud) SelectMenuListByRole(role sys_model.SysRole) (menuIds []string, err error) {
+	err = variable.GormDbMysql.Table("sys_menu m").
+		Select("m.menu_id").
+		Joins("left join sys_role_menu rm on m.menu_id = rm.menu_id").
+		Where("rm.role_id = ?", role.RoleId).
+		Order("m.parent_id, m.order_num").
+		Pluck("m.menu_id", &menuIds). // Pluck the menu_id into the menuIds slice
+		Error
+
+	if err != nil {
+		return nil, err
+	}
+	return menuIds, nil
 }
 
 // SelectMenuById 通过id查询菜单
